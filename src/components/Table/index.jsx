@@ -9,6 +9,7 @@ function Table(props) {
             <span>english</span>
             <span>transcription</span>
             <span>russian</span>
+            <span>buttons</span>
             {cards.map((card, i) => <TableCard
                 key={`${card.english}-${i}`} english={card.english}
                 transcription={card.transcription} russian={card.russian}/>)}
