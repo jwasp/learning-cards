@@ -3,10 +3,10 @@ import './Card.css';
 
 function Card(props) {
     return(
-        <div className={"card-container"}>
-            <span>{props.english}</span>
-            <span>{props.transcription}</span>
-            <span>{props.russian}</span>
+        <div className={"container-card"}>
+            <span className={"container-card_title"}>{props.english}</span>
+            <span className={"container-card_transcription"}>{props.transcription}</span>
+            <button className={"container-card_button"}>показать перевод</button>
         </div>
 
     )

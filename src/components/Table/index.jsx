@@ -1,6 +1,6 @@
 import React from 'react';
 import './Table.css';
-import Card from "../Card";
+import TableCard from "../TableCard";
 import {cards} from "../../data";
 
 function Table(props) {
@@ -9,7 +9,7 @@ function Table(props) {
             <span>english</span>
             <span>transcription</span>
             <span>russian</span>
-            {cards.map((card, i) => <Card
+            {cards.map((card, i) => <TableCard
                 key={`${card.english}-${i}`} english={card.english}
                 transcription={card.transcription} russian={card.russian}/>)}
         </div>
