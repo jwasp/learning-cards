@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import Edit from "./../Edit";
-import Save from "./../Save";
-
 import './TableCard.css';
 
 function TableCard(props) {
@@ -17,7 +14,7 @@ function TableCard(props) {
                     <span><input/></span>
                     <span><input/></span>
                     <span>
-                        <button onClick={handleChange}>save</button>
+                        <button>save</button>
                         <button onClick={handleChange}>cancel</button>
                     </span>
                 </>
@@ -27,8 +24,7 @@ function TableCard(props) {
                     <span>{props.russian}</span>
                     <span>
                         <button onClick={handleChange}>edit</button>
-                        <button>delete</button>
-
+                        <button className={"table-button"}>delete</button>
                     </span>
                 </>
                 }
