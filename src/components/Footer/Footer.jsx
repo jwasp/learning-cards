@@ -1,12 +1,14 @@
 import React from 'react';
+import twitter from '../../assets/images/svg/twitter.svg';
+import insta from '../../assets/images/svg/insta.svg';
 import './Footer.css';
 
 function Footer(props) {
     return(
         <div className={"footer"}>
             <div className={"container-icons"}>
-                <img src="/src/assets/images/twitter.svg" alt="twitter" className={"img-icon"}/>
-                <img src="/src/assets/images/insta.svg" alt="insta" className={"img-icon"}/>
+                <img src={twitter} alt="twitter" className={"img-icon"}/>
+                <img src={insta} alt="insta" className={"img-icon"}/>
             </div>
         </div>
 

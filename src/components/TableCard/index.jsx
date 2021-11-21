@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+import del from '../../assets/images/svg/delete.svg';
+import edit from '../../assets/images/svg/edit.svg';
+import save from '../../assets/images/svg/save.svg';
+import cancel from '../../assets/images/svg/cancel.svg';
 import './TableCard.css';
 
 function TableCard(props) {
@@ -14,8 +18,8 @@ function TableCard(props) {
                     <span><input/></span>
                     <span><input/></span>
                     <span>
-                        <button>save</button>
-                        <button onClick={handleChange}>cancel</button>
+                        <button className={"table-button"}><img className={"table-img"} src={save} alt="save"/></button>
+                        <button className={"table-button"} onClick={handleChange}><img className={"table-img"} src={cancel} alt="cancel"/></button>
                     </span>
                 </>
                  : <>
@@ -23,8 +27,8 @@ function TableCard(props) {
                     <span>{props.transcription}</span>
                     <span>{props.russian}</span>
                     <span>
-                        <button onClick={handleChange}>edit</button>
-                        <button className={"table-button"}>delete</button>
+                        <button className={"table-button"} onClick={handleChange}><img className={"table-img"} src={edit} alt="delete"/></button>
+                        <button className={"table-button"}><img className={"table-img"} src={del} alt="delete"/></button>
                     </span>
                 </>
                 }
