@@ -5,13 +5,13 @@ import Table from './components/Table';
 import Footer from './components/Footer/Footer.jsx';
 import Card from "./components/Card";
 import {cards} from "../src/data.js";
+import CardContainer from "./components/CardContainer";
 
 function App() {
     return (
         <div className="App">
             <Header/>
-            <Card key={`${cards[0].english}`} english={cards[0].english}
-                  transcription={cards[0].transcription} russian={cards[0].russian}/>
+            <CardContainer/>
             <Table/>
             <Footer/>
         </div>
