@@ -10,7 +10,7 @@ function CardContainer(props) {
     const [count, setCount] = useState(1);
     const totalCount = cards.length;
 
-    const NextCard = () => {
+    const nextCard = () => {
         if(count < totalCount) {
             setCount(count + 1);
         }
@@ -38,7 +38,7 @@ function CardContainer(props) {
                 </button>
                 <Card key={`${cards[count-1].english}`} english={cards[count-1].english}
                       transcription={cards[count-1].transcription} russian={cards[count-1].russian}/>
-                <button className={"table-button"} onClick={NextCard}><img className={nextBtnClass} src={next} alt="next"/>
+                <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next} alt="next"/>
                 </button>
             </div>
             <div className={"count"}>{count}/{totalCount}</div>

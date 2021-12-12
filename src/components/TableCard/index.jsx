@@ -14,9 +14,9 @@ function TableCard(props) {
         <>
             {editMode
                 ? <>
-                <span><input/></span>
-                    <span><input/></span>
-                    <span><input/></span>
+                <span><input value={props.english}/></span>
+                    <span><input value={props.transcription}/></span>
+                    <span><input value={props.russian}/></span>
                     <span>
                         <button className={"table-button"}><img className={"table-img"} src={save} alt="save"/></button>
                         <button className={"table-button"} onClick={handleChange}><img className={"table-img"} src={cancel} alt="cancel"/></button>
