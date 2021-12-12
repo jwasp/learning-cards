@@ -14,8 +14,8 @@ function TableCard(props) {
         <>
             {editMode
                 ? <>
-                <span><input/></span>
-                    <span><input/></span>
+                <span><input /></span>
+                    <span><input /></span>
                     <span><input/></span>
                     <span>
                         <button className={"table-button"}><img className={"table-img"} src={save} alt="save"/></button>
