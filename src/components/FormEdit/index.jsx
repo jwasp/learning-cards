@@ -26,6 +26,10 @@ function FormEdit(props) {
         if(!eng.test(english)) alert("only english letters in input of english")
         if(!cyrillicPattern.test(russian)) alert("только русские буквы в russian")
         if(transcription[0] !== "[") alert("транскипция с квадратной скобки")
+        else {
+            console.log(english, transcription, russian)
+            props.handleCancel() //это не работает, я хотела здесь вызвать родитльскую функцию, но не сработало. Как можно было бы сделать
+        }
     }
 
     useEffect(() => {
