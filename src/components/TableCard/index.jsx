@@ -1,26 +1,25 @@
 import React, {useState} from 'react';
 import del from '../../assets/images/svg/delete.svg';
 import edit from '../../assets/images/svg/edit.svg';
-import save from '../../assets/images/svg/save.svg';
-import cancel from '../../assets/images/svg/cancel.svg';
 import './TableCard.css';
+import FormEdit from "../FormEdit";
 
 function TableCard(props) {
     const [editMode, setEditMode] = useState(false);
     const handleChange = () => {
         setEditMode(!editMode);
     };
+
+    const handleSave = () => {
+        console.log()
+    };
+
+
     return(
         <>
             {editMode
                 ? <>
-                <span><input value={props.english}/></span>
-                    <span><input value={props.transcription}/></span>
-                    <span><input value={props.russian}/></span>
-                    <span>
-                        <button className={"table-button"}><img className={"table-img"} src={save} alt="save"/></button>
-                        <button className={"table-button"} onClick={handleChange}><img className={"table-img"} src={cancel} alt="cancel"/></button>
-                    </span>
+                    <FormEdit handleCancel={handleChange}/>
                 </>
                  : <>
                     <span>{props.english}</span>
