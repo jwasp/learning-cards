@@ -4,12 +4,10 @@ import save from "../../assets/images/svg/save.svg";
 import cancel from "../../assets/images/svg/cancel.svg";
 
 function FormEdit(props) {
-    const [blockButton, setBlockButton] = useState(false)
-    const[wrong, setWrong] = useState(false)
     const [formData, setFormData] = useState({
-        english: "",
-        transcription: "",
-        russian: "",
+        english: props.english,
+        transcription: props.transcription,
+        russian: props.russian,
     });
 
     const updateFormData = (event) => {
@@ -23,28 +21,23 @@ function FormEdit(props) {
        const eng = /^[A-Za-z0-9]*$/;
        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
+
         if(!eng.test(english)) alert("only english letters in input of english")
-        if(!cyrillicPattern.test(russian)) alert("только русские буквы в russian")
-        if(transcription[0] !== "[") alert("транскипция с квадратной скобки")
+        else if(!cyrillicPattern.test(russian)) alert("только русские буквы в russian")
+        else if(transcription[0] !== "[") alert("транскипция с квадратной скобки")
         else {
             console.log(english, transcription, russian)
-            props.handleCancel() //это не работает, я хотела здесь вызвать родитльскую функцию, но не сработало. Как можно было бы сделать
         }
     }
 
-    useEffect(() => {
-        (english && transcription && russian) ? setWrong(false) : setWrong(true);
-        (english && transcription && russian) ? setBlockButton(false) : setBlockButton(true) //как здесь можно было бы сократить код?
-    });
-
     const {english,transcription,russian} = formData;
-
+    const isFormValid = english.length && transcription.length && russian.length;
     return(
         <>
             <span>
                 <input value={english}
                        onChange={e => updateFormData(e)}
-                       className={`${wrong?"wrong":""}`}
+                       className={`${!english.length?"wrong":""}`}
                        placeholder={props.english}
                        type={"text"}
                        name={"english"}
@@ -52,7 +45,7 @@ function FormEdit(props) {
             </span>
             <span>
                 <input value={transcription}
-                       className={`${wrong?"wrong":""}`}
+                       className={`${!transcription.length?"wrong":""}`}
                        onChange={e => updateFormData(e)}
                        placeholder={props.transcription}
                        type={"text"}
@@ -60,8 +53,9 @@ function FormEdit(props) {
                        required/>
             </span>
             <span>
-                <input value={russian}
-                       className={`${wrong?"wrong":""}`}
+                <input
+                    value={russian}
+                       className={`${!russian.length?"wrong":""}`}
                        onChange={e => updateFormData(e)}
                        placeholder={props.russian}
                        type={"text"}
@@ -72,7 +66,7 @@ function FormEdit(props) {
                         <button className={"table-button"}
                                 onClick={handleSave}
                             >
-                            <img className={`table-img ${blockButton?"blockButton":""}`}
+                            <img className={`table-img ${!isFormValid?"blockButton":""}`}
                                  src={save}
                                  alt="save"/>
                         </button>

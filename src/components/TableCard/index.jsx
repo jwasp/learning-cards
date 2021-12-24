@@ -19,7 +19,7 @@ function TableCard(props) {
         <>
             {editMode
                 ? <>
-                    <FormEdit handleCancel={handleChange}/>
+                    <FormEdit handleCancel={handleChange} {...props}/>
                 </>
                  : <>
                     <span>{props.english}</span>

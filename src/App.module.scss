@@ -1,3 +1,5 @@
+
+
 .App {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
   background-color: #e5c8e9;
 }
 
-.header-container {
+.headerContainer {
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -15,22 +17,27 @@
   background-color: #b583b5;
 }
 
-.home-item {
+.homeItem {
   display: flex;
   align-items: center;
   width: 10%;
   color: white;
   text-decoration: none;
 }
-.sign-items {
+.signItems {
   display: flex;
   width: 10%;
   justify-content: space-between;
   align-items: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.sign-items a {
-  color: white;
-  text-decoration: none;
-}
+/*.sign-items a {*/
+/*  color: white;*/
+/*  text-decoration: none;*/
+/*}*/
 
