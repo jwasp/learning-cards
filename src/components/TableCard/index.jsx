@@ -6,6 +6,7 @@ import FormEdit from "../FormEdit";
 
 function TableCard(props) {
     const [editMode, setEditMode] = useState(false);
+
     const handleChange = () => {
         setEditMode(!editMode);
     };

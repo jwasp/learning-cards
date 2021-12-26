@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import s from './Table.module.scss';
 import TableCard from "../TableCard";
-import {cards} from "../../data";
+import {WordContext} from "../../WordContext";
 
 function Table(props) {
+    const [cards, setCards] = useContext(WordContext)
     return(
         <div className={s.table_container}>
             <span>english</span>

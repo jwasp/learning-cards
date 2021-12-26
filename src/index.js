@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
+import {WordContext} from "./WordContext";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <WordContext.Provider>
+        <App/>
+    </WordContext.Provider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

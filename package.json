@@ -40,6 +40,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "browserslist": {
     "production": [
       ">0.2%",
