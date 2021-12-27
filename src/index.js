@@ -4,13 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
-import {WordContext} from "./WordContext";
+import {WordsContextProvider} from "./WordContext";
 
+function Main() {
+
+    return(
+        <React.StrictMode>
+            <WordsContextProvider>
+                <App/>
+            </WordsContextProvider>
+        </React.StrictMode>
+    )
+}
 
 ReactDOM.render(
-    <WordContext.Provider>
-        <App/>
-    </WordContext.Provider>,
+
+    <Main/>,
     document.getElementById('root')
 );
 

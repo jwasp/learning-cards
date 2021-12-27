@@ -7980,6 +7980,11 @@
     "stdout-stream" "^1.4.0"
     "true-case-path" "^1.0.2"
 
+"node-uuid@^1.4.8":
+  "integrity" "sha1-sEDrCSOWivq/jTL7HxfxFn/auQc="
+  "resolved" "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.8.tgz"
+  "version" "1.4.8"
+
 "nopt@^5.0.0":
   "integrity" "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ=="
   "resolved" "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz"

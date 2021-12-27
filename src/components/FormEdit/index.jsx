@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './FormEdit.css';
 import save from "../../assets/images/svg/save.svg";
 import cancel from "../../assets/images/svg/cancel.svg";
+import {WordContext} from "../../WordContext";
 
 function FormEdit(props) {
     const [formData, setFormData] = useState({
         english: props.english,
         transcription: props.transcription,
         russian: props.russian,
+        tags: props.tags,
+        tags_json: props.tags_json
     });
+    const {data, setData} = useContext(WordContext)
 
     const updateFormData = (event) => {
         setFormData({
@@ -22,13 +26,25 @@ function FormEdit(props) {
        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
 
+        const newWords = [...data];
+        const index = data.findIndex((card)=> card.id === props.wordId)
+
+        newWords[index] = formData;
+        setData(newWords);
+        props.setEditWord(null)
+
+
         if(!eng.test(english)) alert("only english letters in input of english")
         else if(!cyrillicPattern.test(russian)) alert("только русские буквы в russian")
         else if(transcription[0] !== "[") alert("транскипция с квадратной скобки")
         else {
             console.log(english, transcription, russian)
         }
+
     }
+
+
+
 
     const {english,transcription,russian} = formData;
     const isFormValid = english.length && transcription.length && russian.length;

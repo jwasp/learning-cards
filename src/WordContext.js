@@ -5,24 +5,38 @@ const WordContext = createContext();
 
 function WordsContextProvider(props){
     const [data, setData] = useState([])
-
+    const [isLoading, setIsLoading] =useState(false);
+    const [formAddData, setFormAddData] = useState({
+        english: "",
+        transcription: "",
+        russian: "",
+        tags: "",
+        tags_json: ""
+    });
+    const [error, setError] = useState("")
     useEffect(() => {
-        return () => {
-           fetch('/api/words')
-               .then((response)=>response.json())
-               .then((data)=> setData(data))
-        };
+            setIsLoading(true);
+        fetch('/api/words')
+            .then((response) => {
+                if (response) return response.json()
+                else {
+                    throw new Error('Something went wrong ...');
+                }
+            })
+               .then((data)=> {setData(data); setIsLoading(false)})
+            .catch(error=> {setError(error)})
     }, []);
 
-
+    if(isLoading) return <h5>is loading...</h5>
+    if(error) return <p>{error.message}</p>
     return (
-        <WordContext.Provider>
+        <WordContext.Provider value={{data, setData, formAddData, setFormAddData}}>
             {props.children}
         </WordContext.Provider>
     )
 
 }
 
-export {WordsContextProvider, WordContext};
+export  {WordsContextProvider, WordContext};
 
 
