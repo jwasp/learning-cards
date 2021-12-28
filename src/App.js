@@ -10,7 +10,6 @@ function App() {
     return (
         <BrowserRouter>
             <div className={s.App}>
-                {/*<Header/>*/}
                 <header className={s.headerContainer}>
                     <Link className={s.homeItem} to={"/"}><img className={"table-img"} src={logo} alt="logo"/></Link>
                     <Link className={s.homeItem} to={"/"}>Home</Link>
@@ -20,7 +19,6 @@ function App() {
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
                 </header>
-                <Footer/>
             </div>
 
 
@@ -29,9 +27,10 @@ function App() {
                 <Route exact path="/game" component={CardContainer}/>
                 <Route><h1>404 error</h1></Route>
             </Switch>
+            <Footer/>
         </BrowserRouter>
 
-);
+    );
 }
 
 export default App;

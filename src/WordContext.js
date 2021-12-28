@@ -6,13 +6,6 @@ const WordContext = createContext();
 function WordsContextProvider(props){
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] =useState(false);
-    const [formAddData, setFormAddData] = useState({
-        english: "",
-        transcription: "",
-        russian: "",
-        tags: "",
-        tags_json: ""
-    });
     const [error, setError] = useState("")
     useEffect(() => {
             setIsLoading(true);
@@ -30,7 +23,7 @@ function WordsContextProvider(props){
     if(isLoading) return <h5>is loading...</h5>
     if(error) return <p>{error.message}</p>
     return (
-        <WordContext.Provider value={{data, setData, formAddData, setFormAddData}}>
+        <WordContext.Provider value={{data, setData}}>
             {props.children}
         </WordContext.Provider>
     )

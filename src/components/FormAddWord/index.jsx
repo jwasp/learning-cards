@@ -6,7 +6,7 @@ import {WordContext} from "../../WordContext";
 
 function FormAddWord(props) {
 
-    const {data, setData, formAddData, setFormAddData} = useContext(WordContext)
+    const {data, setData} = useContext(WordContext)
 
     const updateFormData = (event) => {
         event.preventDefault()
@@ -15,6 +15,13 @@ function FormAddWord(props) {
             [event.target.name]: event.target.value
         })
     };
+    const [formAddData, setFormAddData] = useState({
+        english: "",
+        transcription: "",
+        russian: "",
+        tags: "",
+        tags_json: ""
+    });
 
     const handleSave = () => {
         const eng = /^[A-Za-z0-9]*$/;
@@ -41,6 +48,14 @@ function FormAddWord(props) {
         }
         const newWords = [...data, newWord];
         setData(newWords);
+
+        fetch('/api/words/add', {
+            method: 'POST',
+            body: JSON.stringify(formAddData),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+        })
 
     }
 

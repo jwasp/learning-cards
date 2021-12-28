@@ -22,12 +22,10 @@ function TableCard(props) {
         const newWords = [...data];
 
         const index = data.findIndex((card)=> card.id === wordId)
-
-        newWords.slice(index, 1);
+        console.log(index)
+        newWords.splice(index, 1);
         setData(newWords);
-        console.log("trying delete!")
     }
-
 
     return(
         <>

@@ -40,6 +40,13 @@ function FormEdit(props) {
         else {
             console.log(english, transcription, russian)
         }
+        fetch(`/api/words/${props.wordId}/update`, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+        })
 
     }
 

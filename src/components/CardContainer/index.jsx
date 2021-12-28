@@ -41,18 +41,20 @@ function CardContainer(props) {
     return (
         <div className={"container"}>
             <div className={"container-card_buttons"}>
-                <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev} alt="prev"/>
+                <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev}
+                                                                           alt="prev"/>
                 </button>
-                <Card key={`${cards[count-1].english}`}
-                      english={cards[count-1].english}
-                      transcription={cards[count-1].transcription}
-                      russian={cards[count-1].russian}
+                <Card key={`${cards[count - 1].english}`}
+                      english={cards[count - 1].english}
+                      transcription={cards[count - 1].transcription}
+                      russian={cards[count - 1].russian}
                       addLearned={addLearned}/>
-                <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next} alt="next"/>
+                <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next}
+                                                                           alt="next"/>
                 </button>
             </div>
-            <div className={"count"}>{count}/{totalCount}</div>
-            <div className={"learnedCount"}>сколько слов выучено-{learnedCount}</div>
+                <div className={"count"}>{count}/{totalCount}</div>
+                <div className={"learnedCount"}>сколько слов выучено-{learnedCount}</div>
         </div>
     )
 }
