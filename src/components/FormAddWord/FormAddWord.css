@@ -1,0 +1,15 @@
+.wrong {
+    border-color: red;
+    outline: none;
+}
+
+.table-img {
+    margin: 0;
+    padding-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.blockButton {
+    opacity: 0.3;
+}

@@ -1,15 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 20%;
-    padding-left: 40%;
+    align-items: center;
+    background: #e5c8e9;
 }
 
 .container-card_buttons {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 20%;
 }
 
 .img {
@@ -18,13 +17,12 @@
 }
 
 .count {
-    padding-top: 5%;
-    padding-left: 45%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .learnedCount {
-    padding-top: 5%;
-    padding-left: 25%;
+    padding-bottom: 5%;
 }
 
 .table-button {
