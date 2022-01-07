@@ -1,15 +1,18 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useContext} from 'react';
 import Card from "./../Card";
 import './CardContainer.css';
 import next from '../../assets/images/svg/next.svg';
 import prev from '../../assets/images/svg/prev.svg';
 import {cards} from "../../data";
 import classNames from "classnames";
+import {WordContext} from "../../WordContext";
+import TableCard from "../TableCard";
 
 function CardContainer(props) {
+    const {data, setData} = useContext(WordContext);
     const [count, setCount] = useState(1);
     const [learnedCount, setLearnedCount] = useState(0);
-    const totalCount = cards.length;
+    const totalCount = data.length;
 
     const addLearned = useCallback(
         ()=> {

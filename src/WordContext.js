@@ -16,7 +16,9 @@ function WordsContextProvider(props){
                     throw new Error('Something went wrong ...');
                 }
             })
-               .then((data)=> {setData(data); setIsLoading(false)})
+               .then((data)=>
+               {setData(data);
+               setIsLoading(false)})
             .catch(error=> {setError(error)})
     }, []);
 

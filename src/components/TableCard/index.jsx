@@ -39,7 +39,7 @@ function TableCard(props) {
                     <span>{props.russian}</span>
                     <span>
                         <button className={"table-button"} onClick={(event)=> handleEditClick(event, card)}>
-                            <img className={"table-img"} src={edit} alt="delete"/></button>
+                            <img className={"table-img"} src={edit} alt="edit"/></button>
                         <button className={"table-button"}
                                 onClick={(event)=>handleDeleteClick(card.id)}>
                             <img className={"table-img"} src={del} alt="delete"/></button>
