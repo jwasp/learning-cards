@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
+import WordsStore from "./stores/WordsStore";
+import {Provider} from "mobx-react/src/Provider";
 
+const stores = {
+    wordStore: new WordsStore()
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <Provider {...stores}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
