@@ -9,7 +9,7 @@ import {WordContext} from "../../WordContext";
 import TableCard from "../TableCard";
 
 function CardContainer(props) {
-    const {data, setData} = useContext(WordContext);
+    const {data} = useContext(WordContext);
     const [count, setCount] = useState(1);
     const [learnedCount, setLearnedCount] = useState(0);
     const totalCount = data.length;
@@ -38,19 +38,17 @@ function CardContainer(props) {
             setCount(count - 1);
         }
         setLearnedCount(0)
-        console.log(count)
     };
-
     return (
         <div className={"container"}>
             <div className={"container-card_buttons"}>
                 <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev}
                                                                            alt="prev"/>
                 </button>
-                <Card key={`${cards[count - 1].english}`}
-                      english={cards[count - 1].english}
-                      transcription={cards[count - 1].transcription}
-                      russian={cards[count - 1].russian}
+                <Card key={`${data[count - 1]?.english}`}
+                      english={data[count - 1]?.english}
+                      transcription={data[count - 1]?.transcription}
+                      russian={data[count - 1]?.russian}
                       addLearned={addLearned}/>
                 <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next}
                                                                            alt="next"/>
