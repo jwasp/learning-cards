@@ -20,15 +20,15 @@ function App() {
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
                 </header>
-                <Footer/>
-            </div>
-
-
             <Switch>
                 <Route exact path="/" component={Table}/>
                 <Route exact path="/game" component={CardContainer}/>
                 <Route><h1>404 error</h1></Route>
             </Switch>
+                <Footer/>
+            </div>
+
+
         </BrowserRouter>
 
 );

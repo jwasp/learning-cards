@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
 import WordsStore from "./stores/WordsStore";
-import {Provider} from "mobx-react/src/Provider";
+import {Provider} from "mobx-react";
+
 
 const stores = {
     wordStore: new WordsStore()
