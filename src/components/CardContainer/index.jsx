@@ -3,13 +3,13 @@ import Card from "./../Card";
 import './CardContainer.css';
 import next from '../../assets/images/svg/next.svg';
 import prev from '../../assets/images/svg/prev.svg';
-import {cards} from "../../data";
 import classNames from "classnames";
+import {inject, observer} from "mobx-react";
 
-function CardContainer(props) {
+const CardContainer = inject(['wordStore'])(observer(({wordStore, ...props}) => {
     const [count, setCount] = useState(1);
     const [learnedCount, setLearnedCount] = useState(0);
-    const totalCount = cards.length;
+    const totalCount = wordStore.words.length;
 
     const addLearned = useCallback(
         ()=> {
@@ -35,7 +35,6 @@ function CardContainer(props) {
             setCount(count - 1);
         }
         setLearnedCount(0)
-        console.log(count)
     };
 
     return (
@@ -43,10 +42,10 @@ function CardContainer(props) {
             <div className={"container-card_buttons"}>
                 <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev} alt="prev"/>
                 </button>
-                <Card key={`${cards[count-1].english}`}
-                      english={cards[count-1].english}
-                      transcription={cards[count-1].transcription}
-                      russian={cards[count-1].russian}
+                <Card key={`${wordStore.words[count-1]?.english}`}
+                      english={wordStore.words[count-1]?.english}
+                      transcription={wordStore.words[count-1]?.transcription}
+                      russian={wordStore.words[count-1]?.russian}
                       addLearned={addLearned}/>
                 <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next} alt="next"/>
                 </button>
@@ -55,6 +54,6 @@ function CardContainer(props) {
             <div className={"learnedCount"}>сколько слов выучено-{learnedCount}</div>
         </div>
     )
-}
+}))
 
 export default CardContainer;
