@@ -11,6 +11,8 @@ import {Provider} from "mobx-react";
 const stores = {
     wordStore: new WordsStore()
 }
+console.log(stores)
+
 ReactDOM.render(
     <React.StrictMode>
         <Provider {...stores}>

@@ -44,6 +44,7 @@
     "mobx": "^6.3.12",
     "mobx-react": "^7.2.1",
     "node-sass": "^5.0.0",
+    "node-uuid": "^1.4.8",
     "normalize.css": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
@@ -67,6 +68,7 @@
     "terser-webpack-plugin": "4.2.3",
     "ts-pnp": "1.2.0",
     "url-loader": "4.1.1",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.0.1",
     "webpack": "4.44.2",
     "webpack-dev-server": "3.11.1",
@@ -97,6 +99,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://itgirlschool.justmakeit.ru",
   "browserslist": {
     "production": [
       ">0.2%",
