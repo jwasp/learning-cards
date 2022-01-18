@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'normalize.css';
+import WordsStore from "./stores/WordsStore";
+import {Provider} from "mobx-react";
+
+
+const stores = {
+    wordStore: new WordsStore()
+}
+console.log(stores)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <Provider {...stores}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
