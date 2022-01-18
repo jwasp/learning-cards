@@ -5,10 +5,6 @@ import {inject, observer} from "mobx-react";
 import FormAddWord from "../FormAddWord";
 
 const Table = inject(['wordStore'])(observer(({wordStore}) => {
-        useEffect(() => {
-            wordStore.loadData()
-        }, [])
-        const words = wordStore.words;
 
         if(wordStore.isLoading) return <h5>is loading...</h5>
         return (

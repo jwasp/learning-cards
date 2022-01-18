@@ -3,6 +3,7 @@ import {default as UUID} from "node-uuid";
 
 class WordsStore {
     @observable isLoading;
+    @ observable words = [];
 
     constructor() {
         makeAutoObservable(this)
@@ -93,10 +94,9 @@ class WordsStore {
                 throw new Error('Something went wrong ...');
             }
         }).then(()=>{
-            this.words[id] = changedWord;
-            console.log(changedWord, this.words[id])
+            const indexOfUpdateWord = this.words.findIndex(w => w.id === id)
+            this.words[indexOfUpdateWord] = changedWord;
             this.isLoading = false;
-            console.log('update-', this.words)
         })
     }
 }

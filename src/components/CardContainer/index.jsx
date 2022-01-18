@@ -12,12 +12,12 @@ const CardContainer = inject(['wordStore'])(observer(({wordStore, ...props}) => 
     const totalCount = wordStore.words.length;
 
     const addLearned = useCallback(
-        ()=> {
-            setLearnedCount(learnedCount+1)
+        () => {
+            setLearnedCount(learnedCount + 1)
         }, [learnedCount]
     )
     const nextCard = () => {
-        if(count < totalCount) {
+        if (count < totalCount) {
             setCount(count + 1);
         }
     };
@@ -31,7 +31,7 @@ const CardContainer = inject(['wordStore'])(observer(({wordStore, ...props}) => 
     });
 
     const PrevCard = () => {
-        if(count > 1) {
+        if (count > 1) {
             setCount(count - 1);
         }
         setLearnedCount(0)
@@ -40,14 +40,16 @@ const CardContainer = inject(['wordStore'])(observer(({wordStore, ...props}) => 
     return (
         <div className={"container"}>
             <div className={"container-card_buttons"}>
-                <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev} alt="prev"/>
+                <button className={"table-button"} onClick={PrevCard}><img className={prevBtnClass} src={prev}
+                                                                           alt="prev"/>
                 </button>
-                <Card key={`${wordStore.words[count-1]?.english}`}
-                      english={wordStore.words[count-1]?.english}
-                      transcription={wordStore.words[count-1]?.transcription}
-                      russian={wordStore.words[count-1]?.russian}
+                <Card key={`${wordStore.words[count - 1]?.english}`}
+                      english={wordStore.words[count - 1]?.english}
+                      transcription={wordStore.words[count - 1]?.transcription}
+                      russian={wordStore.words[count - 1]?.russian}
                       addLearned={addLearned}/>
-                <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next} alt="next"/>
+                <button className={"table-button"} onClick={nextCard}><img className={nextBtnClass} src={next}
+                                                                           alt="next"/>
                 </button>
             </div>
             <div className={"count"}>{count}/{totalCount}</div>
