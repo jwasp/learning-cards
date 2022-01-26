@@ -10,9 +10,8 @@ function App() {
     return (
         <BrowserRouter>
             <div className={s.App}>
-                {/*<Header/>*/}
                 <header className={s.headerContainer}>
-                    <Link className={s.homeItem} to={"/"}><img className={"table-img"} src={logo} alt="logo"/></Link>
+                    <Link className={s.homeItem} to={"/"}><img className={s.logo} src={logo} alt="logo"/></Link>
                     <Link className={s.homeItem} to={"/"}>Home</Link>
                     <Link className={s.homeItem} to={"/game"}>Learn Cards</Link>
                     <div className={s.signItems}>
@@ -20,11 +19,11 @@ function App() {
                         <Link to={'/signup'}>Sign up</Link>
                     </div>
                 </header>
-            <Switch>
-                <Route exact path="/" component={Table}/>
-                <Route exact path="/game" component={CardContainer}/>
-                <Route><h1>404 error</h1></Route>
-            </Switch>
+                <Switch>
+                    <Route exact path="/" component={Table}/>
+                    <Route exact path="/game" component={CardContainer}/>
+                    <Route><h1>404 error</h1></Route>
+                </Switch>
                 <Footer/>
             </div>
 

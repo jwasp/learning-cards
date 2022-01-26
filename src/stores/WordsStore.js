@@ -53,7 +53,8 @@ class WordsStore {
                 throw new Error('Something went wrong ...');
             }
         }).then(()=>{
-            this.words.splice(index, 1)
+            const indexOfDeleteWord = this.words.findIndex(w => w.id === index)
+            this.words.splice(indexOfDeleteWord, 1)
         })
     }
     @action loadData = () => {

@@ -5,6 +5,7 @@ import cancel from "../../assets/images/svg/cancel.svg";
 import {inject, observer} from "mobx-react";
 
 const FormEdit = inject(['wordStore'])(observer(({wordStore, ...props}) => {
+    const [error, setError] = useState(false)
     const [formCard, setFormCard] = useState({
         english: props.english,
         transcription: props.transcription,
@@ -16,6 +17,7 @@ const FormEdit = inject(['wordStore'])(observer(({wordStore, ...props}) => {
             ...formCard,
             [event.target.name]: event.target.value
         })
+        setError(true)
     };
 
     const handleSave = () => {
@@ -47,7 +49,7 @@ const FormEdit = inject(['wordStore'])(observer(({wordStore, ...props}) => {
             <span>
                 <input value={english}
                        onChange={e => updateFormData(e)}
-                       className={`${!english.length?"wrong":""}`}
+                       className={`${error?"wrong":""}`}
                        placeholder={props.english}
                        type={"text"}
                        name={"english"}
@@ -76,9 +78,10 @@ const FormEdit = inject(['wordStore'])(observer(({wordStore, ...props}) => {
                         <button className={"table-button"}
                                 onClick={handleSave}
                         >
-                            <img className={`table-img ${!isFormValid?"blockButton":""}`}
-                                 src={save}
-                                 alt="save"/>
+                            <img
+                                className={`table-img ${!isFormValid & error ? "blockButton" : ""}`}
+                                src={save}
+                                alt="save"/>
                         </button>
                         <button className={"table-button"}
                                 onClick={props.handleCancel}
